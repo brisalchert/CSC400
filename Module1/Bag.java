@@ -65,6 +65,8 @@ public class Bag<T> {
         if (head.item.equals(item)) {
             head = head.next;
             size--;
+
+            return;
         }
 
         Node current = head.next;
