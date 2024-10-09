@@ -8,6 +8,7 @@
 //    should return false.
 //  - "int count(T item)": This method should count the occurrences of an item in the bag and return the total
 //    number of occurrences.
+//  - "int getSize()": This method should return the number of items in the bag.
 //  - "boolean isEmpty()": This method should return true if the bag is empty; otherwise, it returns false.
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -128,6 +129,14 @@ public class Bag<T> {
         }
 
         return count;
+    }
+
+    /**
+     * Gets the number of items in the bag
+     * @return the size of the bag
+     */
+    public int getSize() {
+        return size;
     }
 
     /**
