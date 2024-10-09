@@ -35,7 +35,6 @@ public class Bag<T> {
         // If the bag is empty, add the item at the head
         if (head == null) {
             head = newNode;
-            size++;
         } else {
             Node current = head;
 
@@ -46,8 +45,9 @@ public class Bag<T> {
 
             // Append the item to the bag
             current.next = newNode;
-            size++;
         }
+
+        size++;
     }
 
     /**
