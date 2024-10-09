@@ -10,6 +10,7 @@
 //    number of occurrences.
 //  - "int getSize()": This method should return the number of items in the bag.
 //  - "boolean isEmpty()": This method should return true if the bag is empty; otherwise, it returns false.
+//  - "T[] toArray()": This method puts the contents of the bag into an array and returns it.
 //----------------------------------------------------------------------------------------------------------------------
 
 public class Bag<T> {
@@ -145,6 +146,32 @@ public class Bag<T> {
      */
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    /**
+     * Converts the contents of the bag to an array and returns the array
+     * @return the array of bag contents
+     */
+    public T[] toArray() {
+        // Initialize an array for the contents of the bag
+        T[] contents = (T[]) new Object[size];
+
+        // Return the array if there are no items
+        if (contents.length == 0) {
+            return contents;
+        }
+
+        Node current = head;
+        int index = 0;
+
+        // Traverse the list until the end is reached
+        while (current != null) {
+            // Add item to the array and increment the index afterward
+            contents[index++] = current.item;
+            current = current.next;
+        }
+
+        return contents;
     }
 
     // Node class for Linked List implementation of the Bag ADT
