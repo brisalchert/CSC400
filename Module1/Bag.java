@@ -10,7 +10,7 @@
 //    number of occurrences.
 //  - "int getSize()": This method should return the number of items in the bag.
 //  - "boolean isEmpty()": This method should return true if the bag is empty; otherwise, it returns false.
-//  - "T[] toArray()": This method puts the contents of the bag into an array and returns it.
+//  - "String toString()": This method puts the contents of the bag into a String and returns it.
 //----------------------------------------------------------------------------------------------------------------------
 
 public class Bag<T> {
@@ -149,29 +149,30 @@ public class Bag<T> {
     }
 
     /**
-     * Converts the contents of the bag to an array and returns the array
-     * @return the array of bag contents
+     * Converts the contents of the bag to a String and returns it
+     * @return the String of bag contents
      */
-    public T[] toArray() {
-        // Initialize an array for the contents of the bag
-        T[] contents = (T[]) new Object[size];
-
-        // Return the array if there are no items
-        if (contents.length == 0) {
-            return contents;
-        }
-
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
         Node current = head;
-        int index = 0;
 
-        // Traverse the list until the end is reached
+        sb.append("[");
+
+        // Traverse the list, printing each item
         while (current != null) {
-            // Add item to the array and increment the index afterward
-            contents[index++] = current.item;
+            sb.append(current.item);
+
+            // Only print comma and space if there is a next item
+            if (current.next != null) {
+                sb.append(", ");
+            }
+
             current = current.next;
         }
 
-        return contents;
+        sb.append("]");
+
+        return sb.toString();
     }
 
     // Node class for Linked List implementation of the Bag ADT
