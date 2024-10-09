@@ -34,6 +34,7 @@ public class Bag<T> {
         // If the bag is empty, add the item at the head
         if (head == null) {
             head = newNode;
+            size++;
         } else {
             Node current = head;
 
@@ -44,6 +45,7 @@ public class Bag<T> {
 
             // Append the item to the bag
             current.next = newNode;
+            size++;
         }
     }
 
@@ -60,6 +62,7 @@ public class Bag<T> {
         // If the item is at the head, remove it by unlinking it from the list
         if (head.item.equals(item)) {
             head = head.next;
+            size--;
         }
 
         Node current = head.next;
@@ -75,6 +78,7 @@ public class Bag<T> {
         if (current != null) {
             previous.next = current.next;
             current.next = null;
+            size--;
         }
     }
 
