@@ -9,7 +9,6 @@ public class IntegerBag {
     public static void main(String[] args) {
         // Initialize a Bag for storing integers
         Bag<Integer> intBag = new Bag<>();
-        String bagContents;
 
         // Add several items to the bag, including duplicates
         intBag.add(1);
@@ -21,8 +20,7 @@ public class IntegerBag {
         intBag.add(10);
 
         // Print the contents of the bag
-        bagContents = intBag.toString();
-        System.out.println(bagContents);
+        System.out.println(intBag);
 
         // Test the "contains" method
         System.out.println("Bag contains 1: " + intBag.contains(1));
@@ -38,8 +36,7 @@ public class IntegerBag {
 
         // Remove an item from the bag and print contents again
         intBag.remove(10);
-        bagContents = intBag.toString();
-        System.out.println(bagContents);
+        System.out.println(intBag);
 
         // Test the "contains" and "count" method for the removed element
         System.out.println("Bag contains 10: " + intBag.contains(10));
