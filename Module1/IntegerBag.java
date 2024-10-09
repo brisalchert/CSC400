@@ -5,8 +5,6 @@
 //  Bag class.
 //----------------------------------------------------------------------------------------------------------------------
 
-import java.util.Arrays;
-
 public class IntegerBag {
     public static void main(String[] args) {
         // Initialize a Bag for storing integers
