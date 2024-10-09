@@ -48,6 +48,37 @@ public class Bag<T> {
     }
 
     /**
+     * Removes an occurrence of an item from the bag, if it exists
+     * @param item the item to remove
+     */
+    public void remove(T item) {
+        // Return if the bag is empty
+        if (head == null) {
+            return;
+        }
+
+        // If the item is at the head, remove it by unlinking it from the list
+        if (head.item.equals(item)) {
+            head = head.next;
+        }
+
+        Node current = head.next;
+        Node previous = head;
+
+        // Traverse the list until there are no more items or an occurrence is found
+        while (current != null && !current.item.equals(item)) {
+            previous = current;
+            current = current.next;
+        }
+
+        // If the item was found, unlink it from the list
+        if (current != null) {
+            previous.next = current.next;
+            current.next = null;
+        }
+    }
+
+    /**
      * Returns a boolean corresponding to whether or not the bag is empty
      * @return true if the bag is empty; false otherwise
      */
