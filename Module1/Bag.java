@@ -79,6 +79,28 @@ public class Bag<T> {
     }
 
     /**
+     * Checks whether the bag contains at least one occurrence of an item
+     * @param item the item to check for
+     * @return true if the item is found; false otherwise
+     */
+    public boolean contains(T item) {
+        // Return false if the bag is empty
+        if (head == null) {
+            return false;
+        }
+
+        Node current = head;
+
+        // Traverse the list until there are no more items or an occurrence is found
+        while (current != null && !current.item.equals(item)) {
+            current = current.next;
+        }
+
+        // Return true if the item was found; false otherwise
+        return current != null;
+    }
+
+    /**
      * Returns a boolean corresponding to whether or not the bag is empty
      * @return true if the bag is empty; false otherwise
      */
