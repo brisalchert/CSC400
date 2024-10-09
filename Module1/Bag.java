@@ -25,6 +25,29 @@ public class Bag<T> {
     }
 
     /**
+     * Adds a new item of type T to the end of the bag
+     * @param item the item to add
+     */
+    public void add(T item) {
+        Node newNode = new Node(item);
+
+        // If the bag is empty, add the item at the head
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+
+            // Traverse to the end of the bag's contents
+            while (current.next != null) {
+                current = current.next;
+            }
+
+            // Append the item to the bag
+            current.next = newNode;
+        }
+    }
+
+    /**
      * Returns a boolean corresponding to whether or not the bag is empty
      * @return true if the bag is empty; false otherwise
      */
