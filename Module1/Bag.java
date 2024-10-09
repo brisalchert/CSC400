@@ -149,7 +149,7 @@ public class Bag<T> {
 
     // Node class for Linked List implementation of the Bag ADT
     private class Node {
-        private T item;
+        private final T item;
         private Node next;
 
         /**
