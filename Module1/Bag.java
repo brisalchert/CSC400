@@ -101,6 +101,32 @@ public class Bag<T> {
     }
 
     /**
+     * Counts the number of occurrences of an item within the bag
+     * @param item the item to count
+     * @return the total count of the item
+     */
+    public int count(T item) {
+        // Return 0 if the bag is empty
+        if (head == null) {
+            return 0;
+        }
+
+        Node current = head;
+        int count = 0;
+
+        // Traverse the list, incrementing the count whenever an occurrence is found
+        while (current != null) {
+            if (current.item.equals(item)) {
+                count++;
+            }
+
+            current = current.next;
+        }
+
+        return count;
+    }
+
+    /**
      * Returns a boolean corresponding to whether or not the bag is empty
      * @return true if the bag is empty; false otherwise
      */
