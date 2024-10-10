@@ -22,13 +22,15 @@ public class IntegerBag {
         // Print the contents of the bag
         System.out.println(intBag);
 
-        // Test the "contains" method
+        /* Test the "contains" method. It should return "true" for items in
+        the bag and "false" for items not in the bag. */
         System.out.println("Bag contains 1: " + intBag.contains(1));
         System.out.println("Bag contains 3: " + intBag.contains(3));
         System.out.println("Bag contains 10: " + intBag.contains(10));
         System.out.println("Bag contains 25: " + intBag.contains(25));
 
-        // Test the "count" method
+        /* Test the "count" method. It should return the frequency of the item
+        passed to the method (and therefore 0 for items not in the bag). */
         System.out.println("Count for 2: " + intBag.count(2));
         System.out.println("Count for 10: " + intBag.count(10));
         System.out.println("Count for 35: " + intBag.count(35));
@@ -38,7 +40,7 @@ public class IntegerBag {
         intBag.remove(10);
         System.out.println(intBag);
 
-        // Test the "contains" and "count" method for the removed element
+        // Test the "contains" and "count" method again for the removed item
         System.out.println("Bag contains 10: " + intBag.contains(10));
         System.out.println("Count for 10: " + intBag.count(10));
     }
