@@ -1,5 +1,6 @@
 # Microsoft Word
 *.docx
+*.tmp
 
 # Compiled class file
 *.class
