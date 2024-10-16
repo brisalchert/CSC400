@@ -154,6 +154,29 @@ public class Bag<T> {
     }
 
     /**
+     * Returns a new bag that contains only the distinct items from this bag
+     * @return the bag of distinct items
+     */
+    public Bag<T> distinct() {
+        // Create a new bag for distinct items
+        Bag<T> distinctBag = new Bag<>();
+
+        Node current = head;
+
+        // Traverse the bag, adding each item that is not already in distinctBag
+        while (current != null) {
+            // Check for item in distinctBag
+            if (!distinctBag.contains(current.item)) {
+                distinctBag.add(current.item);
+            }
+
+            current = current.next;
+        }
+
+        return distinctBag;
+    }
+
+    /**
      * Gets the number of items in the bag
      * @return the size of the bag
      */
