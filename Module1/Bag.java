@@ -138,7 +138,7 @@ public class Bag<T> {
      * Gets the number of items in the bag
      * @return the size of the bag
      */
-    public int getSize() {
+    public int size() {
         return size;
     }
 
