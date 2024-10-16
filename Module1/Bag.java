@@ -135,6 +135,25 @@ public class Bag<T> {
     }
 
     /**
+     * Merges the items of otherBag into this bag by appending each to this bag
+     * @param otherBag the other bag to merge items from
+     */
+    public void merge(Bag<T> otherBag) {
+        // If the other bag is empty, return
+        if (otherBag.isEmpty()) {
+            return;
+        }
+
+        Node current = otherBag.head;
+
+        // Traverse the other bag, adding each item to this bag
+        while (current != null) {
+            this.add(current.item);
+            current = current.next;
+        }
+    }
+
+    /**
      * Gets the number of items in the bag
      * @return the size of the bag
      */
