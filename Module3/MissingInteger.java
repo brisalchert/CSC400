@@ -14,7 +14,7 @@ public class MissingInteger {
 
     /**
      * Finds the missing integer in an array of length n containing unique integers
-     * in a random order in the range of 1 to n + 1.
+     * in a random order in the range of 1 to n + 1. Time complexity: O(n)
      * @param array the array of unique integers
      * @return the missing integer
      */
