@@ -38,6 +38,9 @@ public class PostfixCalculator {
      * @throws InputMismatchException if the expression is invalid
      */
     public int evaluatePostfix(String expression) throws InputMismatchException {
+        // Clear the stack to remove values from previous invalid expressions
+        numStack.clear();
+
         int result;
         // Initialize a scanner for parsing input
         Scanner scan  = new Scanner(expression);
