@@ -45,6 +45,11 @@ public class PostfixCalculator {
         // Initialize String of valid operators
         String operators = "+-*/%";
 
+        // If expression is empty, throw an error
+        if (expression.isEmpty()) {
+            throw new InputMismatchException("Invalid postfix expression");
+        }
+
         // Parse input until it is exhausted
         while (scan.hasNext()) {
             // Parse the next token
