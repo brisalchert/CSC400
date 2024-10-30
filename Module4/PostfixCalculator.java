@@ -78,6 +78,9 @@ public class PostfixCalculator {
             }
         }
 
+        // Close the scanner
+        scan.close();
+
         // Pop the resulting value off of numStack
         result = numStack.pop();
 
