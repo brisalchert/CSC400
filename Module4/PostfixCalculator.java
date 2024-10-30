@@ -16,8 +16,17 @@
 //  calculator can distinguish between single-digit and multi-digit operands.
 //----------------------------------------------------------------------------------------------------------------------
 
-public class PostfixCalculator {
+import java.util.Stack;
 
+public class PostfixCalculator {
+    private Stack<Integer> numStack;
+
+    /**
+     * Constructor: Initializes a PostfixCalculator with a numStack
+     */
+    public PostfixCalculator() {
+        numStack = new Stack<>();
+    }
 
     public int evaluatePostfix(String expression) {
         return 0;
