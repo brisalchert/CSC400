@@ -2,6 +2,9 @@
 *.docx
 *.tmp
 
+# Output text files
+out/**/*.txt
+
 # Compiled class file
 *.class
 
