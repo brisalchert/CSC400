@@ -50,6 +50,7 @@ public class PostfixCalculator {
 
         // If expression is empty, throw an error
         if (expression.isEmpty()) {
+            scan.close();
             throw new InputMismatchException("Invalid postfix expression");
         }
 
@@ -67,6 +68,7 @@ public class PostfixCalculator {
                     performOperation(token);
                 }
                 catch (EmptyStackException error) {
+                    scan.close();
                     throw new InputMismatchException("Invalid postfix expression");
                 }
             } else {
@@ -76,6 +78,7 @@ public class PostfixCalculator {
                     numStack.push(Integer.parseInt(token));
                 }
                 catch (NumberFormatException error) {
+                    scan.close();
                     throw new InputMismatchException("Invalid postfix expression");
                 }
             }
