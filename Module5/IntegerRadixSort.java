@@ -53,7 +53,11 @@ public class IntegerRadixSort {
             // Convert position to 0-index
             int index = digits[(array[i] / digitPlace) % 10] - 1;
 
+            // Place element at its index in the output array
             output[index] = array[i];
+
+            // Decrement the 1-indexed position for the next instance of the relevant digit
+            digits[(array[i] / digitPlace) % 10]--;
         }
 
         // Replace original array with output array
