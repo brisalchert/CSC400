@@ -30,7 +30,7 @@ public class IntegerRadixSort {
      * Sorts an array of integers based on the digit in the place of digitPlace.
      * @param array the array of integers
      * @param digitPlace the place of the digit to sort by (i.e. "1s place" or "10s place")
-     * @return the array of sorted integers
+     * @return the sorted array of integers
      */
     private static int[] countSort(int[] array, int digitPlace) {
         // Initialize arrays for output and digits
@@ -55,6 +55,26 @@ public class IntegerRadixSort {
             int index = digits[(array[i] / digitPlace) % 10] - 1;
 
             output[index] = array[i];
+        }
+
+        return output;
+    }
+
+    /**
+     * Performs a radix sort on an array of positive integers.
+     * @param array the array of integers
+     * @return the sorted array of integers
+     */
+    public static int[] radixSort(int[] array) {
+        // Initialize output array
+        int[] output = new int[array.length];
+
+        // Get the maximum element of the array
+        int max = getMax(array);
+
+        // For each digit in the array elements, perform a counting sort
+        for (int digitPlace = 1; (max / digitPlace) > 0; digitPlace *= 10) {
+            output = countSort(array, digitPlace);
         }
 
         return output;
