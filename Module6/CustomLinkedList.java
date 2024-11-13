@@ -70,6 +70,10 @@ public class CustomLinkedList {
         }
     }
 
+    public int size() {
+        return size;
+    }
+
     public Iterator<Integer> iterator() {
         return new LinkedListIterator();
     }
