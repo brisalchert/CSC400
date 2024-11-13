@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class CustomLinkedList {
     private Node head;
@@ -103,10 +106,19 @@ public class CustomLinkedList {
     public static void main(String[] args) {
         CustomLinkedList linkedList = new CustomLinkedList();
 
-        // Insert some elements
-        linkedList.insert(1);
-        linkedList.insert(2);
-        linkedList.insert(3);
+        // Initialize a Scanner (using try-with-resources) to read input from a file
+        try (Scanner scanner = new Scanner(new File("IntList.txt"))) {
+            // Get input for each integer in the file
+            while (scanner.hasNextInt()) {
+                int item = scanner.nextInt();
+
+                // Add the integer to the list
+                linkedList.insert(item);
+            }
+        }
+        catch (FileNotFoundException error) {
+            System.out.println("Error reading file");
+        }
 
         // Iterate and display elements
         Iterator<Integer> iterator = linkedList.iterator();
