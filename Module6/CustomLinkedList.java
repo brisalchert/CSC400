@@ -128,10 +128,18 @@ public class CustomLinkedList {
         linkedList.delete(1);
         linkedList.delete(235);
 
+        System.out.print("Linked List contents:\n[");
+
         // Iterate and display elements
         Iterator<Integer> iterator = linkedList.iterator();
         while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " ");
+            System.out.print(iterator.next());
+
+            if (iterator.hasNext()) {
+                System.out.print(", ");
+            }
         }
+
+        System.out.println("]");
     }
 }
