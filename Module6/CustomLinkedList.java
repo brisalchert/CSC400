@@ -124,6 +124,10 @@ public class CustomLinkedList {
             System.out.println("Error reading file");
         }
 
+        // Remove some elements
+        linkedList.delete(1);
+        linkedList.delete(235);
+
         // Iterate and display elements
         Iterator<Integer> iterator = linkedList.iterator();
         while (iterator.hasNext()) {
