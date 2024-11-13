@@ -93,6 +93,10 @@ public class CustomLinkedList {
         return size;
     }
 
+    /**
+     * Gets an iterator over the integers in the list
+     * @return the iterator
+     */
     public Iterator<Integer> iterator() {
         return new LinkedListIterator();
     }
