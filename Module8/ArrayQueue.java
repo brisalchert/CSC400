@@ -4,9 +4,7 @@
 //  Queue class using an array implementation. Using an array makes sorting with quick sort much easier.
 //----------------------------------------------------------------------------------------------------------------------
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class ArrayQueue<T> {
     private T[] data;
@@ -144,5 +142,100 @@ public class ArrayQueue<T> {
 
         // Return an iterator over the elements of the array
         return queueList.iterator();
+    }
+
+    /**
+     * Sorts the elements of the queue in-place
+     * @param comparator the default ascending-order comparator to sort the elements by
+     * @param ascending if true, sorts in ascending order, otherwise sorts in descending order
+     */
+    public void sort(Comparator<T> comparator, boolean ascending) {
+        // Reverse the comparator if necessary
+        if (!ascending) {
+            comparator = Collections.reverseOrder(comparator);
+        }
+
+        // Get the queue contents as an array
+        T[] queueArray = this.toArray();
+
+        // Sort the array using quicksort
+        quicksort(queueArray, comparator, 0, queueArray.length - 1);
+
+        // Assign the new array as the queue and update the front index
+        this.data = queueArray;
+        front = 0;
+    }
+
+    /**
+     * Sorts an array using the quicksort algorithm
+     * @param array the array to sort
+     * @param comparator the comparator to use for comparing elements
+     * @param low the low index of the values in the array being sorted
+     * @param high the high index of the values in the array being sorted
+     */
+    private void quicksort(T[] array, Comparator<T> comparator, int low, int high) {
+        // Set recursion to stop when low == high (one element in partition)
+        if (low < high) {
+            // Partition the current array and get the index of the last element of the smaller partition
+            int partitionIndex = partition(array, comparator, low, high);
+
+            // Recursively sort each partition
+            quicksort(array, comparator, low, partitionIndex);
+            quicksort(array, comparator, partitionIndex + 1, high);
+        }
+    }
+
+    /**
+     * Partition an array using Hoare's Partition Algorithm, which traverses the array from both sides and
+     * performs fewer swaps than the Lomuto Partition
+     * @param array the array to partition
+     * @param comparator the comparator to use for comparing elements
+     * @param low the low index of the values in the array being partitioned
+     * @param high the high index of the values in the array being partitioned
+     * @return the index of the last value of the smaller partition
+     */
+    private int partition(T[] array, Comparator<T> comparator, int low, int high) {
+        // Select the first element as the pivot
+        T pivot = array[low];
+
+        // Set starting values for left and right indices
+        int left = low - 1;
+        int right = high + 1;
+
+        // Continue partitioning until left and right indices cross
+        while (true) {
+            // Find the next element from the left greater than or equal to the pivot
+            do {
+                left++;
+            } while (comparator.compare(array[left], pivot) < 0);
+
+            // Find the next element from the right less than or equal to the pivot
+            do {
+                right--;
+            } while (comparator.compare(array[right], pivot) > 0);
+
+            // If left and right indices crossed, end partitioning
+            if (left > right) {
+                break;
+            }
+
+            // Swap the elements at the left and right indices
+            swap(array, left, right);
+        }
+
+        // Return the index of the last value of the smaller partition
+        return right;
+    }
+
+    /**
+     * Swaps two values at the given indices within an array with elements of type T
+     * @param array the array of elements with type T
+     * @param i the index of the first element
+     * @param j the index of the second element
+     */
+    private void swap(T[] array, int i, int j) {
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
