@@ -152,7 +152,7 @@ public class ArrayQueue<T> {
     public void sort(Comparator<T> comparator, boolean ascending) {
         // Reverse the comparator if necessary
         if (!ascending) {
-            comparator = Collections.reverseOrder(comparator);
+            comparator = comparator.reversed();
         }
 
         // Get the queue contents as an array
