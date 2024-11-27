@@ -7,8 +7,8 @@
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class LinkedQueue<E> {
-    private LinkedList<E> data;
+public class LinkedQueue<T> {
+    private LinkedList<T> data;
     private int size;
 
     /**
@@ -36,10 +36,10 @@ public class LinkedQueue<E> {
 
     /**
      * Adds an element to the back of the queue
-     * @param e the element to add
+     * @param element the element to add
      */
-    public void enqueue(E e) {
-        data.addLast(e);
+    public void enqueue(T element) {
+        data.addLast(element);
         size++;
     }
 
@@ -47,7 +47,7 @@ public class LinkedQueue<E> {
      * Removes and returns the front element of the queue
      * @return the removed front element of the queue
      */
-    public E dequeue() {
+    public T dequeue() {
         if (size == 0) {
             return null;
         }
@@ -60,7 +60,7 @@ public class LinkedQueue<E> {
      * Returns the front element of the queue without removing it
      * @return the current front element of the queue
      */
-    public E peek() {
+    public T peek() {
         return data.getFirst();
     }
 
@@ -68,7 +68,7 @@ public class LinkedQueue<E> {
      * Gets an iterator over the elements in the queue
      * @return an iterator object
      */
-    public Iterator<E> iterator() {
+    public Iterator<T> iterator() {
         return data.iterator();
     }
 }
