@@ -215,7 +215,7 @@ public class ArrayQueue<T> {
             } while (comparator.compare(array[right], pivot) > 0);
 
             // If left and right indices crossed, end partitioning
-            if (left > right) {
+            if (left >= right) {
                 break;
             }
 
