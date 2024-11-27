@@ -51,7 +51,7 @@ public class Person {
      * Gets a comparator for comparing Person objects by first name
      * @return the first name comparator
      */
-    public Comparator<Person> getFirstNameComparator() {
+    public static Comparator<Person> getFirstNameComparator() {
         return Comparator.comparing(Person::getFirstName);
     }
 
@@ -59,7 +59,7 @@ public class Person {
      * Gets a comparator for comparing Person objects by last name
      * @return the last name comparator
      */
-    public Comparator<Person> getLastNameComparator() {
+    public static Comparator<Person> getLastNameComparator() {
         return Comparator.comparing(Person::getLastName);
     }
 
@@ -67,7 +67,7 @@ public class Person {
      * Gets a comparator for comparing Person objects by age
      * @return the age comparator
      */
-    public Comparator<Person> getAgeComparator() {
+    public static Comparator<Person> getAgeComparator() {
         return Comparator.comparing(Person::getAge);
     }
 
